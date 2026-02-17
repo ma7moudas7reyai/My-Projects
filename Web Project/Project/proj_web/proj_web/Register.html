@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Netflix Register</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      background: url(/images/EG-en-20250421-TRIFECTA-perspective_5b9dbe79-40e9-4fb9-9ce0-01d3ef3e4a99_small.jpg) no-repeat center center/cover;
+      position: relative;
+    }
+    .overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.6);
+      z-index: 1;
+    }
+    .register-container {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(0,0,0,0.75);
+      padding: 40px 32px 32px 32px;
+      border-radius: 8px;
+      width: 350px;
+      z-index: 2;
+      box-shadow: 0 0 15px #000;
+      color: #fff;
+    }
+    .register-container h2 {
+      margin-bottom: 28px;
+      font-size: 2rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+      text-align: left;
+    }
+    .input-group {
+      position: relative;
+      margin-bottom: 22px;
+    }
+    .register-input {
+      width: 93%;
+      padding: 18px 12px 10px 12px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 4px;
+      background: #333;
+      color: #fff;
+      outline: none;
+    }
+    .placeholder-label {
+      position: absolute;
+      left: 12px;
+      top: 18px;
+      color: #8c8c8c;
+      font-size: 1rem;
+      pointer-events: none;
+      transition: 0.2s ease all;
+      background: transparent;
+      padding: 0 4px;
+    }
+    .register-input:focus + .placeholder-label,
+    .register-input.filled + .placeholder-label {
+      top: 2px;
+      left: 8px;
+      font-size: 0.85rem;
+      color: #e50914;
+    }
+    .sign-btn {
+      width: 100%;
+      padding: 14px 0;
+      background: #e50914;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 10px;
+      margin-bottom: 18px;
+      transition: background 0.2s;
+    }
+    .sign-btn:hover {
+      background: #b0060f;
+    }
+    .login-link {
+      display: block;
+      text-align: center;
+      margin-top: 18px;
+      color: #b3b3b3;
+      font-size: 0.97rem;
+    }
+    .login-link a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      margin-left: 4px;
+    }
+    .login-link a:hover {
+      text-decoration: underline;
+    }
+    .netflix-logo {
+      position: absolute;
+      top: 32px;
+      left: 32px;
+      z-index: 2;
+      width: 150px;
+    }
+    .terms {
+      margin-top: 16px;
+      font-size: 0.85rem;
+      color: #b3b3b3;
+      line-height: 1.5;
+    }
+    .terms a {
+      color: #0071eb;
+      text-decoration: none;
+    }
+    .terms a:hover {
+      text-decoration: underline;
+    }
+    @media (max-width: 450px) {
+      .register-container {
+        width: 95vw;
+        padding: 24px 8px;
+      }
+      .netflix-logo {
+        left: 12px;
+        width: 110px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay"></div>
+  <img class="netflix-logo" src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix Logo">
+  <div class="register-container">
+    <h2>Sign Up</h2>
+    <form>
+      <div class="input-group">
+        <input type="text" id="fullname" class="register-input" autocomplete="off" required />
+        <label for="fullname" class="placeholder-label">Full Name</label>
+      </div>
+      <div class="input-group">
+        <input type="email" id="email" class="register-input" autocomplete="off" required />
+        <label for="email" class="placeholder-label">Email or mobile number</label>
+      </div>
+      <div class="input-group">
+        <input type="password" id="password" class="register-input" autocomplete="off" required />
+        <label for="password" class="placeholder-label">Password</label>
+      </div>
+      <div class="input-group">
+        <input type="password" id="confirm-password" class="register-input" autocomplete="off" required />
+        <label for="confirm-password" class="placeholder-label">Confirm Password</label>
+      </div>
+      <button type="submit" class="sign-btn">Sign Up</button>
+
+      <div class="login-link">
+        Already have an account?
+        <a href="login.html" >Sign in now.</a>
+      </div>
+      <div class="terms">
+        This page is protected by Google reCAPTCHA to ensure you're not a bot.<br>
+        <a href="#">Learn more.</a>
+      </div>
+    </form>
+  </div>
+  <script>
+    // تحريك placeholder
+    document.querySelectorAll('.register-input').forEach(function(input) {
+      input.addEventListener('focus', function() {
+        input.classList.add('filled');
+      });
+      input.addEventListener('blur', function() {
+        if (!input.value) input.classList.remove('filled');
+      });
+      input.addEventListener('input', function() {
+        if (input.value) {
+          input.classList.add('filled');
+        } else {
+          input.classList.remove('filled');
+        }
+      });
+  
+      // تأكد لو فيه بيانات مسبقة
+      if (input.value) {
+        input.classList.add('filled');
+      }
+    });
+  
+    // التحقق عند الضغط على زر التسجيل
+    document.querySelector('form').addEventListener('submit', function(e) {
+      e.preventDefault();
+  
+      const fullname = document.getElementById('fullname').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value.trim();
+      const confirmPassword = document.getElementById('confirm-password').value.trim();
+  
+      if (!fullname || !email || !password || !confirmPassword) {
+        alert("Please fill in all fields before signing up.");
+        return;
+      }
+  
+      if (password !== confirmPassword) {
+        alert("Passwords do not match.");
+        return;
+      }
+  
+      // لو كل البيانات سليمة يتم التوجيه
+      window.location.href = 'login.html';
+    });
+  </script>
+</body>
+</html>

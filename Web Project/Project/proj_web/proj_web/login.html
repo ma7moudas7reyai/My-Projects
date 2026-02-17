@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Netflix Sign In Clone</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            background: url(/images/EG-en-20250421-TRIFECTA-perspective_5b9dbe79-40e9-4fb9-9ce0-01d3ef3e4a99_small.jpg) no-repeat center center/cover;
+            position: relative;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 1;
+        }
+
+        .login-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.75);
+            padding: 40px 32px 32px 32px;
+            border-radius: 8px;
+            width: 350px;
+            z-index: 2;
+            box-shadow: 0 0 15px #000;
+            color: #fff;
+        }
+
+        .login-container h2 {
+            margin-bottom: 28px;
+            font-size: 2rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-align: left;
+        }
+
+        .input-group {
+            position: relative;
+            margin-bottom: 22px;
+        }
+
+        .login-input {
+            width: 93%;
+            padding: 18px 12px 10px 12px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 4px;
+            background: #333;
+            color: #fff;
+            outline: none;
+        }
+
+        .placeholder-label {
+            position: absolute;
+            left: 12px;
+            top: 18px;
+            color: #8c8c8c;
+            font-size: 1rem;
+            pointer-events: none;
+            transition: 0.2s ease all;
+            background: transparent;
+            padding: 0 4px;
+        }
+
+        .login-input:focus+.placeholder-label,
+        .login-input.filled+.placeholder-label {
+            top: 2px;
+            left: 8px;
+            font-size: 0.85rem;
+            color: #e50914;
+        }
+
+        .sign-btn {
+            width: 100%;
+            padding: 14px 0;
+            background: #e50914;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+            margin-bottom: 18px;
+            transition: background 0.2s;
+        }
+
+        .sign-btn:hover {
+            background: #b0060f;
+        }
+
+        .divider {
+            text-align: center;
+            color: #b3b3b3;
+            margin: 18px 0 10px 0;
+            position: relative;
+        }
+
+        .divider:before,
+        .divider:after {
+            content: "";
+            display: inline-block;
+            width: 40%;
+            height: 1px;
+            background: #444;
+            vertical-align: middle;
+            margin: 0 8px;
+        }
+
+        .alt-btn {
+            width: 100%;
+            padding: 10px 0;
+            background: #444;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            margin-bottom: 14px;
+            cursor: pointer;
+        }
+
+        .login-footer {
+            font-size: 0.95rem;
+            color: #b3b3b3;
+            margin-top: 16px;
+        }
+
+        .login-footer a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            margin-left: 4px;
+        }
+
+        .login-footer a:hover {
+            text-decoration: underline;
+        }
+
+        .remember-me {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .remember-me input[type="checkbox"] {
+            margin-right: 8px;
+            accent-color: #e50914;
+        }
+
+        .forgot-link {
+            color: #b3b3b3;
+            text-decoration: none;
+            float: right;
+            font-size: 0.95rem;
+            margin-top: 2px;
+        }
+
+        .forgot-link:hover {
+            text-decoration: underline;
+            color: #fff;
+        }
+
+        .netflix-logo {
+            position: absolute;
+            top: 32px;
+            left: 32px;
+            z-index: 2;
+            width: 150px;
+        }
+
+        @media (max-width: 450px) {
+            .login-container {
+                width: 95vw;
+                padding: 24px 8px;
+            }
+
+            .netflix-logo {
+                left: 12px;
+                width: 110px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="overlay"></div>
+    <img class="netflix-logo" src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg"
+        alt="Netflix Logo" />
+    <div class="login-container">
+        <h2>Sign In</h2>
+        <form>
+            <div class="input-group">
+                <input type="text" id="email" class="login-input" autocomplete="off" required />
+                <label for="email" class="placeholder-label">Email or mobile number</label>
+            </div>
+            <div class="input-group">
+                <input type="password" id="password" class="login-input" autocomplete="off" required />
+                <label for="password" class="placeholder-label">Password</label>
+            </div>
+            <button type="submit" class="sign-btn">
+                Sign In
+            </button>            <script>
+                document.querySelector('form').addEventListener('submit', function (e) {
+                    e.preventDefault(); // يمنع إعادة تحميل الصفحة الافتراضي
+            
+                    // الحصول على الحقول
+                    const email = document.getElementById('email');
+                    const password = document.getElementById('password');
+            
+                    // التحقق من الحقول
+                    let isValid = true;
+            
+                    if (!email.value.trim()) {
+                        alert('Email or mobile number is required.');
+                        isValid = false;
+                    }
+            
+                    if (!password.value.trim()) {
+                        alert('Password is required.');
+                        isValid = false;
+                    }
+            
+                    // إذا كانت الحقول صحيحة، الانتقال إلى الصفحة المطلوبة
+                    if (isValid) {
+                        window.location.href = 'index.html';
+                    }
+                });
+            </script>
+            <div class="divider">OR</div>
+            <button type="button" class="alt-btn">Use a Sign-In Code</button>
+            <a href="#" class="forgot-link">Forgot password?</a>
+            <div class="remember-me">
+                <input type="checkbox" id="remember" checked />
+                <label for="remember" style="color: #b3b3b3; font-size: 0.95rem">Remember me</label>
+            </div>
+            <div class="login-footer">
+                New to Netflix?
+                <a href="Register.html">Sign up now.</a>
+            </div>
+            <div style="margin-top: 14px; font-size: 0.85rem; color: #666">
+                This page is protected by Google reCAPTCHA to ensure you're not a
+                bot.<br />
+                <a href="#" style="color: #0071eb">Learn more.</a>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // إضافة كلاس "filled" للإنبوت إذا كان فيه نص
+        document.querySelectorAll(".login-input").forEach(function (input) {
+            input.addEventListener("focus", function () {
+                input.classList.add("filled");
+            });
+            input.addEventListener("blur", function () {
+                if (!input.value) input.classList.remove("filled");
+            });
+            // عند الكتابة
+            input.addEventListener("input", function () {
+                if (input.value) {
+                    input.classList.add("filled");
+                } else {
+                    input.classList.remove("filled");
+                }
+            });
+        });
+        document.querySelector('form').addEventListener('submit', function(e) {
+        e.preventDefault(); // يمنع إعادة تحميل الصفحة الافتراضي
+        window.location.href = 'index.html'; // ينقل المستخدم للصفحة المطلوبة
+        });
+    </script>
+</body>
+
+</html>
