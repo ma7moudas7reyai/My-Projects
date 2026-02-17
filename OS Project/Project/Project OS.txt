@@ -1,0 +1,15 @@
+Path of Files: 
+	cd "D:\University\3- Semester 1\Operating Systems\Project\Sockets" 
+	cd "D:\University\3- Semester 1\Operating Systems\Project\Shared Memory"
+
+Compile Server File: 
+	g++ server.cpp -o server -lws2_32
+
+Compile Client File:
+	g++ client.cpp -o client -lws2_32
+
+Compile Reader File: 
+	g++ reader.cpp -o reader
+
+Compile Writer File: 
+	g++ writer.cpp -o writer
