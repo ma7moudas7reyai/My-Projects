@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/
+
+# IDE and build outputs
+.idea/
+.vscode/
+bin/
+out/
+dist/
+build/
+
+# Local-only project material
+**/Team Member/
+**/Team Members/
+**/Video/
+NLP Project/*.pkl
+
+# OS files
+Thumbs.db
+.DS_Store
