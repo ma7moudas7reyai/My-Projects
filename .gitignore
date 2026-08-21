@@ -19,6 +19,12 @@ build/
 **/Video/
 NLP Project/*.pkl
 
+# New generated binaries and recordings
+*.exe
+*.mp4
+*.webm
+tempCodeRunnerFile.*
+
 # OS files
 Thumbs.db
 .DS_Store
