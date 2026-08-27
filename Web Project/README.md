@@ -10,6 +10,10 @@ It simulates a streaming platform interface including:
 
 The project focuses on UI design, layout structuring, and basic client-side validation.
 
+## 🎬 Demo
+
+[Watch the Netflix front-end clone demo](demo/web-project-demo.mp4)
+
 ---
 
 ## 🎨 Features
