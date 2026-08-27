@@ -2,6 +2,10 @@
 
 A JavaFX implementation of the classic Mastermind code-breaking game, developed as an Object-Oriented Programming university project at the Egyptian E-Learning University (EELU).
 
+## Demo
+
+[Watch the Mastermind gameplay demo](demo/mastermind-demo.mp4)
+
 ## Features
 
 - Generates a random four-color secret code with unique colors
