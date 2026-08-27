@@ -19,6 +19,12 @@ The system consists of two main implementations:
 
 Both console and GUI versions are implemented using Windows API.
 
+## 🎬 Combined Demo
+
+[Watch the Shared Memory and Socket implementations](demo/os-ipc-demo.mp4)
+
+The video presents the Shared Memory implementation first, followed by the Socket-based implementation.
+
 ---
 
 # 🧠 Part 1 – Shared Memory Chat (IPC)
