@@ -15,6 +15,7 @@ A portfolio of university and personal work across artificial intelligence, mach
 | Web Development | [Streaming website interface](Web%20Project/) | HTML, CSS |
 | Operating Systems | [Sockets and shared memory](OS%20Project/) | C++, Windows APIs, IPC |
 | Software Engineering | [Online study-material registration](Software%20Project/) | Requirements and system design |
+| Advanced Software Engineering | [Car rental management system](Advanced%20Software%20Engineering%20Project/) | Java, Swing, SQL Server, JDBC, JUnit |
 
 Each project directory contains its own documentation and supporting files.
 
