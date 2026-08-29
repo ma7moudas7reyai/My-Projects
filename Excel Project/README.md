@@ -4,6 +4,10 @@ An interactive Microsoft Excel dashboard for exploring Super Store performance b
 
 ![Super Store Sales Dashboard](dashboard-preview.png)
 
+## Demo video
+
+[Watch the interactive dashboard demo](super-store-dashboard-demo.mp4)
+
 ## Dashboard highlights
 
 - Executive KPIs for total sales, total profit, profit margin, total orders, and return rate.
